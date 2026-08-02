@@ -1,0 +1,10 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ai.monitoring</groupId>
+        <artifactId>parent-pom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../parent-pom/pom.xml</relativePath>
+    </parent>
+    <artifactId>config</artifactId>
+</project>
