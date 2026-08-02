@@ -1,0 +1,287 @@
+Here are the PostgreSQL commands you will commonly use when working with your Docker PostgreSQL setup.
+
+## 1. Connect to PostgreSQL
+
+From PowerShell:
+
+```powershell
+docker exec -it infra-postgres-1 psql -U aiuser -d aimonitor
+```
+
+---
+
+## 2. Exit PostgreSQL shell
+
+Inside `psql`:
+
+```sql
+\q
+```
+
+---
+
+# Database commands
+
+### 3. Show current database
+
+```sql
+SELECT current_database();
+```
+
+---
+
+### 4. Show current user
+
+```sql
+SELECT current_user;
+```
+
+---
+
+### 5. List all databases
+
+```sql
+\l
+```
+
+or:
+
+```sql
+\list
+```
+
+---
+
+### 6. Connect to another database
+
+```sql
+\c database_name
+```
+
+Example:
+
+```sql
+\c aimonitor
+```
+
+---
+
+# Table commands
+
+### 7. List tables
+
+```sql
+\dt
+```
+
+---
+
+### 8. List all tables with details
+
+```sql
+\dt+
+```
+
+---
+
+### 9. Describe a table structure
+
+```sql
+\d table_name
+```
+
+Example:
+
+```sql
+\d users
+```
+
+Shows:
+
+* columns
+* data types
+* indexes
+* constraints
+
+---
+
+### 10. List all database objects
+
+```sql
+\d
+```
+
+---
+
+# Data commands
+
+### 11. View table data
+
+```sql
+SELECT * FROM table_name;
+```
+
+Example:
+
+```sql
+SELECT * FROM users;
+```
+
+---
+
+### 12. Insert data
+
+```sql
+INSERT INTO users(name,email)
+VALUES ('John','john@test.com');
+```
+
+---
+
+### 13. Update data
+
+```sql
+UPDATE users
+SET name='Mike'
+WHERE id=1;
+```
+
+---
+
+### 14. Delete data
+
+```sql
+DELETE FROM users
+WHERE id=1;
+```
+
+---
+
+# Creating database objects
+
+### 15. Create a table
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    email TEXT
+);
+```
+
+---
+
+### 16. Drop a table
+
+```sql
+DROP TABLE users;
+```
+
+---
+
+# Useful PostgreSQL information
+
+### 17. Show PostgreSQL version
+
+```sql
+SELECT version();
+```
+
+---
+
+### 18. Show all users
+
+```sql
+\du
+```
+
+---
+
+### 19. Show active connections
+
+```sql
+SELECT * FROM pg_stat_activity;
+```
+
+---
+
+### 20. Clear terminal screen
+
+Inside `psql`:
+
+```sql
+\! cls
+```
+
+(Windows)
+
+or:
+
+```sql
+\! clear
+```
+
+(Linux/Mac)
+
+---
+
+# Docker-related commands you will use often
+
+### Check PostgreSQL container status
+
+```powershell
+docker ps
+```
+
+---
+
+### View PostgreSQL logs
+
+```powershell
+docker logs infra-postgres-1
+```
+
+---
+
+### Restart PostgreSQL
+
+```powershell
+docker restart infra-postgres-1
+```
+
+---
+
+### Stop PostgreSQL
+
+```powershell
+docker stop infra-postgres-1
+```
+
+---
+
+### Start PostgreSQL
+
+```powershell
+docker start infra-postgres-1
+```
+
+---
+
+## For your `aimonitor` project, the commands you will probably use most often are:
+
+```powershell
+docker exec -it infra-postgres-1 psql -U aiuser -d aimonitor
+```
+
+then:
+
+```sql
+\dt
+\d table_name
+SELECT * FROM table_name;
+INSERT INTO table_name (...);
+UPDATE table_name SET ...;
+\q
+```
+
+Those cover around 90% of day-to-day PostgreSQL development work.
