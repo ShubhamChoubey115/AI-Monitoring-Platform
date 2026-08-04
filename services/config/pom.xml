@@ -1,10 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.ai.monitoring</groupId>
-        <artifactId>parent-pom</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../parent-pom/pom.xml</relativePath>
-    </parent>
-    <artifactId>config</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.ai.monitoring</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../../parent-pom/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>config-service</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
 </project>
