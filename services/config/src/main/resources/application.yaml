@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ShubhamChoubey115/ai-monitoring-configs.git
+          clone-on-start: true
+          default-label: main
