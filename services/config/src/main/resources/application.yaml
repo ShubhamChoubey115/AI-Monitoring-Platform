@@ -11,3 +11,12 @@ spring:
           uri: https://github.com/ShubhamChoubey115/ai-monitoring-configs.git
           clone-on-start: true
           default-label: main
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
