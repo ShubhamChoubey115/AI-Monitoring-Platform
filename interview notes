@@ -1,0 +1,11 @@
+Likely Interview Questions + Model Answers:
+
+Q: Why did you choose a monorepo instead of polyrepo?
+A: Monorepo simplifies dependency management and integration testing. Polyrepo scales better for large teams, but for a single developer project, monorepo is faster and easier to demo.
+
+Q: Why Docker Compose instead of Kubernetes?
+A: Compose is lightweight, easy to run locally, and interview-ready. Kubernetes is powerful but overkill for early phases; we can migrate later.
+
+Q: Why Prometheus + Grafana?
+A: They are industry-standard for metrics and visualization, free, and integrate seamlessly with Spring Boot Micrometer.
+
